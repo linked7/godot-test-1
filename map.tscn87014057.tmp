@@ -1,0 +1,138 @@
+[gd_scene load_steps=20 format=3 uid="uid://cjfx8uml36una"]
+
+[ext_resource type="PackedScene" uid="uid://cbr7ybebb24do" path="res://crate.tscn" id="1_c7s6e"]
+[ext_resource type="Script" uid="uid://ttmdkn1yuro7" path="res://map.gd" id="1_urblq"]
+[ext_resource type="PackedScene" uid="uid://bduaixrtq6mk" path="res://character.tscn" id="2_wijl4"]
+[ext_resource type="Texture2D" uid="uid://cswlbuivuss7g" path="res://menu.png" id="6_iw27f"]
+[ext_resource type="Script" uid="uid://djw0s07i2fbf5" path="res://addons/zylann.hterrain/hterrain.gd" id="7_gqbix"]
+[ext_resource type="Resource" uid="uid://dod8dl6wh0uow" path="res://tdata/data.hterrain" id="8_oysan"]
+[ext_resource type="Script" uid="uid://bnbjy6cohqf33" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="9_sb2pt"]
+[ext_resource type="Texture2D" uid="uid://dc48acy88v4ec" path="res://terrain_textures/map_slot0_albedo_bump.png" id="10_a6rn7"]
+[ext_resource type="Texture2D" uid="uid://crl4p3haulxtx" path="res://terrain_textures/map_slot1_albedo_bump.png" id="11_4on3e"]
+[ext_resource type="Texture2D" uid="uid://btecsh05pc06l" path="res://terrain_textures/map_slot2_albedo_bump.png" id="12_bssq0"]
+[ext_resource type="Texture2D" uid="uid://c341m6xsdnt0y" path="res://terrain_textures/map_slot3_albedo_bump.png" id="13_jk4ss"]
+[ext_resource type="Texture2D" uid="uid://cw1eg08cyfixo" path="res://terrain_textures/map_slot0_normal_roughness.png" id="14_r5om4"]
+[ext_resource type="Texture2D" uid="uid://ca2cip2wn1cdw" path="res://terrain_textures/map_slot1_normal_roughness.png" id="15_jky6x"]
+[ext_resource type="Texture2D" uid="uid://c7ba73n3a0kwv" path="res://terrain_textures/map_slot2_normal_roughness.png" id="16_4sf5t"]
+[ext_resource type="Texture2D" uid="uid://co5kcxwtlca8a" path="res://terrain_textures/map_slot3_normal_roughness.png" id="17_3mr0t"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0t07s"]
+
+[sub_resource type="Sky" id="Sky_6qsgm"]
+sky_material = SubResource("ProceduralSkyMaterial_0t07s")
+
+[sub_resource type="Environment" id="Environment_ooc2g"]
+background_mode = 2
+sky = SubResource("Sky_6qsgm")
+tonemap_mode = 2
+fog_enabled = true
+fog_mode = 1
+fog_density = 1.0
+fog_depth_begin = 50.0
+fog_depth_end = 346.9
+
+[sub_resource type="Resource" id="Resource_2wwcf"]
+script = ExtResource("9_sb2pt")
+mode = 0
+textures = [[ExtResource("10_a6rn7"), ExtResource("11_4on3e"), ExtResource("12_bssq0"), ExtResource("13_jk4ss")], [ExtResource("14_r5om4"), ExtResource("15_jky6x"), ExtResource("16_4sf5t"), ExtResource("17_3mr0t")]]
+
+[node name="Map" type="Node3D"]
+script = ExtResource("1_urblq")
+player_scene = ExtResource("2_wijl4")
+
+[node name="Geometry" type="Node" parent="."]
+
+[node name="crate2" parent="Geometry" instance=ExtResource("1_c7s6e")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 2, 5, -3)
+
+[node name="crate" parent="Geometry" instance=ExtResource("1_c7s6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -6)
+
+[node name="crate3" parent="Geometry" instance=ExtResource("1_c7s6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+
+[node name="crate4" parent="Geometry" instance=ExtResource("1_c7s6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, -3)
+
+[node name="crate5" parent="Geometry" instance=ExtResource("1_c7s6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+
+[node name="crate6" parent="Geometry" instance=ExtResource("1_c7s6e")]
+transform = Transform3D(-0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 0, 0, 1, 2, 2, -3)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, -2.18557e-08, -0.258819, 0.258819, -3.78552e-08, 0.965926, -3.09086e-08, -1, -3.09086e-08, 1, 10, 8)
+light_color = Color(0.894118, 1, 0.964706, 1)
+shadow_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+texture = ExtResource("6_iw27f")
+centered = false
+
+[node name="Host" type="Button" parent="CanvasLayer"]
+offset_left = 674.0
+offset_top = 292.0
+offset_right = 851.0
+offset_bottom = 371.0
+text = "Host
+(Dev/local only)"
+
+[node name="Join" type="Button" parent="CanvasLayer"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 253.0
+offset_top = -32.0
+offset_right = 430.0
+offset_bottom = 47.0
+grow_vertical = 2
+text = "Join"
+
+[node name="InputIP" type="LineEdit" parent="CanvasLayer"]
+offset_left = 253.0
+offset_top = 183.0
+offset_right = 428.0
+offset_bottom = 224.0
+placeholder_text = "Enter IP Adress"
+
+[node name="InputPort" type="LineEdit" parent="CanvasLayer"]
+offset_left = 253.0
+offset_top = 237.0
+offset_right = 428.0
+offset_bottom = 278.0
+placeholder_text = "Enter Port"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://bduaixrtq6mk")
+spawn_path = NodePath("..")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ooc2g")
+
+[node name="HTerrain" type="Node3D" parent="."]
+script = ExtResource("7_gqbix")
+_terrain_data = ExtResource("8_oysan")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_2wwcf")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = null
+shader_params/u_tile_reduction = null
+metadata/_custom_type_script = "uid://djw0s07i2fbf5"
+
+[node name="SpawnPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 281, 12.8, 202)
+gizmo_extents = 0.52
+
+[connection signal="pressed" from="CanvasLayer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="CanvasLayer/Join" to="." method="_on_join_pressed"]

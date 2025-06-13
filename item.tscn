@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b71criot8drwq"]
+
+[ext_resource type="Script" uid="uid://3ue1eusmcvfr" path="res://item.gd" id="1_kg5e7"]
+[ext_resource type="Script" uid="uid://cuikps651wu3e" path="res://texture.gd" id="2_kg5e7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_unjj8"]
+
+[node name="Item" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_kg5e7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("BoxShape3D_unjj8")
+
+[node name="Sprite" type="Sprite3D" parent="."]
+pixel_size = 0.0005
+billboard = 1
+shaded = true
+double_sided = false
+script = ExtResource("2_kg5e7")

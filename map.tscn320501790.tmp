@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjfx8uml36una"]
+
+[ext_resource type="PackedScene" uid="uid://cbr7ybebb24do" path="res://crate.tscn" id="1_c7s6e"]
+[ext_resource type="PackedScene" uid="uid://bduaixrtq6mk" path="res://character.tscn" id="2_wijl4"]
+[ext_resource type="Texture2D" uid="uid://brtle0c8w4yu1" path="res://icon.svg" id="3_e0an3"]
+[ext_resource type="Script" uid="uid://cqyfvtckhmfxu" path="res://icon.gd" id="4_p5pve"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_e6lj2"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c7s6e"]
+size = Vector3(20, 1, 20)
+
+[node name="Map" type="Node3D"]
+
+[node name="Geometry" type="Node" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="Geometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.785101, -1.1389, 0.0301552)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geometry/Floor"]
+mesh = SubResource("BoxMesh_e6lj2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Geometry/Floor"]
+shape = SubResource("BoxShape3D_c7s6e")
+debug_color = Color(0.352515, 0.58839, 0.541678, 0.42)
+
+[node name="crate2" parent="Geometry" instance=ExtResource("1_c7s6e")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 2, 5, -3)
+
+[node name="crate" parent="Geometry" instance=ExtResource("1_c7s6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -6)
+
+[node name="crate3" parent="Geometry" instance=ExtResource("1_c7s6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+
+[node name="crate4" parent="Geometry" instance=ExtResource("1_c7s6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, -3)
+
+[node name="crate5" parent="Geometry" instance=ExtResource("1_c7s6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3)
+
+[node name="crate6" parent="Geometry" instance=ExtResource("1_c7s6e")]
+transform = Transform3D(-0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 0, 0, 1, 2, 2, -3)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, -2.18557e-08, -0.258819, 0.258819, -3.78552e-08, 0.965926, -3.09086e-08, -1, -3.09086e-08, 1, 10, 8)
+light_color = Color(0.894118, 1, 0.964706, 1)
+shadow_enabled = true
+
+[node name="Character" parent="." instance=ExtResource("2_wijl4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+
+[node name="Icon" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 1, -4)
+texture = ExtResource("3_e0an3")
+script = ExtResource("4_p5pve")

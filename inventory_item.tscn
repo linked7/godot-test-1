@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b73nbknvumb64"]
+
+[ext_resource type="Script" uid="uid://3nsekge87bjx" path="res://inventory_item.gd" id="1_5b765"]
+
+[node name="InventoryItem" type="Area2D"]
+script = ExtResource("1_5b765")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
