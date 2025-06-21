@@ -28,7 +28,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 "
 
@@ -114,6 +114,7 @@ offset_left = 253.0
 offset_top = 183.0
 offset_right = 428.0
 offset_bottom = 224.0
+text = "127.0.0.1"
 placeholder_text = "Enter IP Adress"
 
 [node name="InputPort" type="LineEdit" parent="MainMenu"]
@@ -121,6 +122,7 @@ offset_left = 253.0
 offset_top = 237.0
 offset_right = 428.0
 offset_bottom = 278.0
+text = "22223"
 placeholder_text = "Enter Port"
 
 [node name="Interface" type="CanvasLayer" parent="."]
